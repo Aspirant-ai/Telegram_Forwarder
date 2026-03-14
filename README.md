@@ -6,9 +6,16 @@ A simple Telegram Python bot running on Python3 to automatically forward message
 
 v2 uses a different configuration file format. Please refer to the [Configuration](#configuration) section for more information. The bot will not start if the configuration file is not in the correct format.
 
+## Modes
+
+This project supports two modes:
+
+- **Bot Mode** — Uses a Telegram bot. Bot must be added as admin in source & destination chats.
+- **Userbot Mode** — Uses your personal Telegram account. Can read any public channel without being added.
+
 ## Starting The Bot
 
-Once you've setup your your configuration (see below) is complete, simply run:
+### Bot Mode
 
 ```shell
 python -m forwarder
@@ -19,6 +26,14 @@ or with poetry (recommended)
 ```shell
 poetry run forwarder
 ```
+
+### Userbot Mode
+
+```shell
+python userbot_forwarder.py
+```
+
+> First run will ask for your phone number and OTP. A `userbot_session.session` file will be created for future runs.
 
 ## Setting Up The Bot (Read the instruction bellow before starting the bot!):
 
@@ -32,9 +47,17 @@ There are two files mandatory for the bot to work `.env` and `chat_list.json`.
 
 Template env may be found in `sample.env`. Rename it to `.env` and fill in the values:
 
-- `BOT_TOKEN` - Telegram bot token. You can get it from [@BotFather](https://t.me/BotFather)
+**Bot Mode:**
 
+- `BOT_TOKEN` - Telegram bot token. You can get it from [@BotFather](https://t.me/BotFather)
 - `OWNER_ID` - An integer of consisting of your owner ID.
+
+**Userbot Mode:**
+
+- `API_ID` - Your Telegram API ID. Get it from [my.telegram.org](https://my.telegram.org) → API development tools.
+- `API_HASH` - Your Telegram API Hash. Get it from [my.telegram.org](https://my.telegram.org) → API development tools.
+
+**Shared:**
 
 - `REMOVE_TAG` - set to `True` if you want to remove the tag ("Forwarded from xxxxx") from the forwarded message.
 
