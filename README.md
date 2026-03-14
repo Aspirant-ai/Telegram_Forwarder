@@ -39,6 +39,8 @@ python userbot_forwarder.py
 
 Telegram Forwarder only supports Python 3.9 and higher.
 
+> **Note:** If you are using Python 3.12+, the bot requires `python-telegram-bot>=21.9` and `apscheduler==3.10.4`. These are already included in `requirements.txt`.
+
 ### Configuration
 
 There are two files mandatory for the bot to work `.env` and `chat_list.json`.

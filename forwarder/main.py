@@ -1,3 +1,4 @@
+import asyncio
 import importlib
 
 from forwarder import LOGGER, bot
@@ -10,4 +11,5 @@ for module in ALL_MODULES:
 def run():
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     LOGGER.info("Starting bot...")
+    asyncio.set_event_loop(asyncio.new_event_loop())
     bot.run_polling()
